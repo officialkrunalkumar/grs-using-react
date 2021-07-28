@@ -21,6 +21,11 @@ const EditComplaint = ({data, updateComplaint}) => {
            let path = `/complaint`;
            history.push(path);
         }
+        else{
+            var text="Please fill all the data.";
+            document.getElementById("validity").innerHTML = text;
+            document.getElementById("validity").style.color = "red";
+        }
     }
     return (
         <>
@@ -51,6 +56,7 @@ const EditComplaint = ({data, updateComplaint}) => {
                     <Form.Label>Description</Form.Label>
                     <Form.Control as="textarea" rows={3} name="description" value={complaint.description} placeholder="Describe Your Complaint" onChange={handleChange} />
                 </Form.Group>
+                <p id="validity"></p>
                 <button className="btn btn-outline-success my-3 mx-auto" type="submit" onClick={handleSubmit} >Update</button>
             </Form>
             </div>
