@@ -3,8 +3,8 @@ import React from 'react';
 
 const ComplaintD = ({data, deleteComplaint}) => {
     return (
-        <div className="card card-body">
-            <table className="table table-sm">
+        <div>
+            <table className="table table-lg">
               <tr>
                 <td>{data.title}</td>
                 <td>{data.description}</td>
