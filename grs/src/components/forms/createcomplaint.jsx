@@ -29,6 +29,10 @@ const Createcomplaint = (props) => {
            let path = `/complaint`;
            history.push(path);
         }
+        else{
+            var text="Please fill all the data.";
+            document.getElementById("validity").innerHTML = text;
+        }
     }
     return (
         <>
@@ -58,7 +62,9 @@ const Createcomplaint = (props) => {
                 <Form.Group controlId="textarea" className="mb-3">
                     <Form.Label>Description</Form.Label>
                     <Form.Control as="textarea" name="description" value={complaint.description} placeholder="Describe Your Complaint" rows={3} onChange={handleChange} />
+                    <p id="valid" className="text-right"></p>
                 </Form.Group>
+                <p id="validity"></p>
                 <button className="btn btn-outline-success my-3 mx-auto" onClick={handleSubmit} type="submit">Submit</button>
                 </Form>
             </div>
