@@ -98,7 +98,7 @@ const Signup = ({ setUser }) => {
             <div className="mt-4 mb-4">
               <div className="d-flex justify-content-center links">
                 Already have an account?{" "}
-                <Link to="/login" className="ml-2">
+                <Link to="/login" className="ml-2 mb-4">
                   Login
                 </Link>
               </div>

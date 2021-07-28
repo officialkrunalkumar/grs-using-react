@@ -88,7 +88,7 @@ const Login = ({ setUser }) => {
         <div className="mt-4 mb-4">
           <div className="d-flex justify-content-center links">
             Don't have an account?{" "}
-            <Link to="/signup" className="ml-2">
+            <Link to="/signup" className="ml-2 mb-4">
               Sign Up
             </Link>
           </div>
