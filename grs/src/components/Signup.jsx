@@ -104,9 +104,9 @@ const Signup = ({ setUser }) => {
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       </div>
-      <Footer />
     </>
   );
 };

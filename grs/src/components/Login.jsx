@@ -94,9 +94,9 @@ const Login = ({ setUser }) => {
           </div>
         </div>
       </div>
-      </div>
-      </div>
       <Footer />
+      </div>
+      </div>
     </>
   );
 };
