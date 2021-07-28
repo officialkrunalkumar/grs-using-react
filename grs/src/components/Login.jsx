@@ -17,8 +17,15 @@ const Login = ({ setUser }) => {
       let path = `/complaint`;
       history.push(path);
     }
+    else if(username === "" || password === ""){
+      var text="Please fill all the data.";
+      document.getElementById("validity").innerHTML = text;
+      document.getElementById("validity").style.color = "red";
+    }
     else{
-      alert("Invalid Credentials!")
+      var text1="Invalid Credentials!";
+      document.getElementById("wrong").innerHTML = text1;
+      document.getElementById("wrong").style.color = "red";
     }
     setUsername(username);
   };
@@ -66,7 +73,7 @@ const Login = ({ setUser }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
             </div>
-
+            <p id="validity"></p>
             <div className="d-flex justify-content-center mt-3 login_container">
             <input
               className="btn btn-outline-info btn-lg"
@@ -75,6 +82,7 @@ const Login = ({ setUser }) => {
               onClick={handleSubmit}
             />
             </div>
+            <p id="wrong"></p>
           </form>
         </div>
         <div className="mt-4 mb-4">

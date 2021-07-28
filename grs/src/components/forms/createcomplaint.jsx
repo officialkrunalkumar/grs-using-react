@@ -32,6 +32,7 @@ const Createcomplaint = (props) => {
         else{
             var text="Please fill all the data.";
             document.getElementById("validity").innerHTML = text;
+            document.getElementById("validity").style.color = "red";
         }
     }
     return (

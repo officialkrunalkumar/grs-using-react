@@ -19,7 +19,9 @@ const Signup = ({ setUser }) => {
     }
     else
     {
-      alert("username and password can not be empty");
+      var text="Please fill all the data.";
+      document.getElementById("validity").innerHTML = text;
+      document.getElementById("validity").style.color = "red";
     }
     setUsername(username);
   };
@@ -79,6 +81,7 @@ const Signup = ({ setUser }) => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
+                <p id="validity"></p>
                 <div className="d-flex justify-content-center mt-3 login_container">
                 <div className="btn btn-outline-info btn-lg">
                   <input
