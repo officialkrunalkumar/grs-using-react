@@ -7,8 +7,14 @@ const ComplaintD = ({data, deleteComplaint}) => {
             <table className="table table-lg">
               <tr>
                 <td>{data.title}</td>
+                <td>{data.name}</td>
+                <td>{data.complaint_for}</td>
+                <td>{data.complaint_to}</td>
+                <td>{data.cohort}</td>
+                <td>{data.level}</td>
                 <td>{data.description}</td>
-                <td>{data.user}</td>
+                <td>{data.category}</td>
+                <td>{data.user_role}</td>
                 <td>
                 <NavLink className="btn btn-outline-danger m-2" exact to={`/edit-complaint/${parseInt(data.id)}`}>
                     <i className="fa fa-pencil"></i>

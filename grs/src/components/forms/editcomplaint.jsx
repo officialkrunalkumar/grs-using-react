@@ -16,7 +16,7 @@ const EditComplaint = ({data, updateComplaint}) => {
     const history = useHistory();
     const handleSubmit = e => {
         e.preventDefault();
-        if (complaint.title && complaint.user && complaint.description) {
+        if (complaint.title && complaint.name && complaint.description && complaint.complaint_for && complaint.complaint_to && complaint.level && complaint.category && complaint.cohort && complaint.user_role) {
            updateComplaint(complaint, currentComplaint);
            let path = `/complaint`;
            history.push(path);
@@ -42,23 +42,82 @@ const EditComplaint = ({data, updateComplaint}) => {
             <div className="container h-100" />
             <div className="d-flex justify-content-center h-100" />
             <div className="row mt-5">
-            <Form className="col-lg-5 mx-auto">
+            <Form className="col-md-6 mx-auto">
                 <h2 className="mt-2 mb-5">Update Complaint</h2>
                 <Form.Group controlId="title" className="mb-3">
                     <Form.Label>Title</Form.Label>
                     <Form.Control type="text" name="title" value={complaint.title} placeholder="Complaint in Brief" onChange={handleChange}/>
                 </Form.Group>
-                <Form.Group controlId="email" className="mb-3">
+                <Form.Group controlId="name" className="mb-3">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" name="name" value={complaint.name} placeholder="Your Name" onChange={handleChange}/>
+                </Form.Group>
+                <Form.Group controlId="complaint_for" className="mb-3">
+                    <Form.Label>Complaint For</Form.Label>
+                    <Form.Control as="select" name="complaint_for" value={complaint.complaint_for} onChange={handleChange}>
+                        <Form.Control as="option"> Select </Form.Control>
+                        <Form.Control as="option" value="G">General</Form.Control>
+                        <Form.Control as="option" value="M">Management</Form.Control>
+                        <Form.Control as="option" value="E">Education</Form.Control>
+                        <Form.Control as="option" value="D">Deployment</Form.Control>
+                        <Form.Control as="option" value="S">Salary</Form.Control>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="complaint_to" className="mb-3">
+                    <Form.Label>Complaint To</Form.Label>
+                    <Form.Control as="select" name="complaint_to" value={complaint.complaint_to} onChange={handleChange}>
+                        <Form.Control as="option"> Select </Form.Control>
+                        <Form.Control as="option" value="M">Mentor</Form.Control>
+                        <Form.Control as="option" value="A">Admin</Form.Control>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="cohort" className="mb-3">
                     <Form.Label>Cohort</Form.Label>
-                    <Form.Control type="email" name="user" value={complaint.user} placeholder="Your Cohort" onChange={handleChange}/>
+                    <Form.Control as="select" name="cohort" value={complaint.cohort} onChange={handleChange}>
+                        <Form.Control as="option"> Select </Form.Control>
+                        <Form.Control as="option" value="U">Unknown</Form.Control>
+                        <Form.Control as="option" value="P">Python</Form.Control>
+                        <Form.Control as="option" value="J">Java</Form.Control>
+                        <Form.Control as="option" value="R">React</Form.Control>
+                        <Form.Control as="option" value="A">Android</Form.Control>
+                        <Form.Control as="option" value="L">Linux</Form.Control>
+                        <Form.Control as="option" value="C">Cybersecurity</Form.Control>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="level" className="mb-3">
+                    <Form.Label>Level</Form.Label>
+                    <Form.Control as="select" name="level" value={complaint.level} onChange={handleChange}>
+                        <Form.Control as="option"> Select </Form.Control>
+                        <Form.Control as="option" value="I">Individual</Form.Control>
+                        <Form.Control as="option" value="G">General</Form.Control>
+                    </Form.Control>
                 </Form.Group>
                 <Form.Group controlId="textarea" className="mb-3">
                     <Form.Label>Description</Form.Label>
-                    <Form.Control as="textarea" rows={3} name="description" value={complaint.description} placeholder="Describe Your Complaint" onChange={handleChange} />
+                    <Form.Control as="textarea" name="description" value={complaint.description} placeholder="Describe Your Complaint" rows={3} onChange={handleChange} />
+                    <p id="valid" className="text-right"></p>
+                </Form.Group>
+                <Form.Group controlId="category" className="mb-3">
+                    <Form.Label>Category</Form.Label>
+                    <Form.Control as="select" name="category" value={complaint.category} onChange={handleChange}>
+                        <Form.Control as="option"> Select </Form.Control>    
+                        <Form.Control as="option" value="I">Identifiable</Form.Control>
+                        <Form.Control as="option" value="A">Anonymous</Form.Control>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="user_role" className="mb-3">
+                    <Form.Label>User Role</Form.Label>
+                    <Form.Control as="select" name="user_role" value={complaint.user_role} onChange={handleChange}>
+                        <Form.Control as="option"> Select </Form.Control>
+                        <Form.Control as="option" value="T">Trainee</Form.Control>
+                        <Form.Control as="option" value="M">Mentor</Form.Control>
+                    </Form.Control>
                 </Form.Group>
                 <p id="validity"></p>
-                <button className="btn btn-outline-success my-3 mx-auto" type="submit" onClick={handleSubmit} >Update</button>
-            </Form>
+                <div className="d-flex justify-content-center mt-3 login_container">
+                <button className="btn btn-outline-success my-3 mx-auto" onClick={handleSubmit} type="submit">Submit</button>
+                </div>
+                </Form>
             </div>
         </div>
         <Footer />
